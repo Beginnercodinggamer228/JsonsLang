@@ -1,0 +1,9 @@
+username = input('Введите имя - ');
+password = sprintf('%s%s', chars('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), ...
+  num2str(randint(10, 20)));
+
+data = struct('username', username, 'password', password, 'iflogin?', true);
+
+fileID = fopen([username, '.json'], 'w');
+fwrite(fileID, jsonencode(data));
+fclose(fileID);

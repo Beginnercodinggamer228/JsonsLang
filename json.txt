@@ -1,0 +1,17 @@
+Create "username" and generate password
+  Create a list of words that can make up the password
+
+  Take a random selection from the word list to create the first part of the password
+  Append a number and another word to complete the password
+
+Write username and password in a file
+  Open a blank page
+  Write the username across the top of the page
+  Write the generated password below username
+
+Create a dictionary with the username, password and login status
+  Give the dictionary a name (e.g. "user_data")
+  Add the following to the dictionary:
+  - The username as key
+  - The generated password as value
+  - Set the login status to true

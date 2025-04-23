@@ -1,0 +1,23 @@
+(defpackage :ran-code
+  (:use :standard))
+
+(in-package :ran-code)
+
+(defun ran-code (length)
+  (coerce (loop for i from 0 below length
+  collect (random-char "abcdefghijklmnopqrstuvwxyz0123456789"))
+  'string))
+
+(defun file-value (name &key exp data)
+  (with-open-file (stream (merge-pathnames (cons name ".")
+  "*standard-output*"))
+  (json:encode-json data stream)))
+
+(defparameter *username* (input-stream))
+(defpara meter *password* (ran-code 10))
+(defparameter *datafile*
+  (list :username (read-line *username  :password (ran-code 10)
+  :iflogin? t))
+
+(if (symbol-value (symbol-name (function-name #'(find-lisp-version)))))
+  (file-value "File" :json *datafile*)

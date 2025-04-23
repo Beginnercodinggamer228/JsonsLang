@@ -1,0 +1,23 @@
+import * as crypto from 'crypto';
+import * as fs from 'fs';
+
+function generateRandomString(length: number): string {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  return Array.from({ length }, () => characters[Math.floor(Math.random() * characters.length)]).join('');
+}
+
+function saveToFile(filename: string, extension: string, data: any) {
+  fs.writeFileSync(`${filename}.${extension}`, JSON.stringify(data));
+}
+
+const username = prompt('Введите имя - ');
+const password = generateRandomString(randomInt(10, 20));
+const data = {
+  username,
+  password,
+  'iflogin?': true
+};
+
+if (require.main === module) {
+  saveToFile("File", "json", data);
+}
